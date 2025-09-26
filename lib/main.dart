@@ -5,6 +5,7 @@ import 'services/tts_service.dart';
 import 'services/storage_service.dart';
 import 'services/translation_service.dart';
 import 'screens/splash_screen.dart';
+import 'screens/api_debug_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -145,7 +146,10 @@ class FarmerApp extends StatelessWidget {
           elevation: 8,
         ),
       ),
+      
+      // Switch this between SplashScreen() and ApiDebugPage() for debugging
       home: SplashScreen(),
+      // home: ApiDebugPage(), // uncomment this when testing API response
     );
   }
 }

@@ -11,9 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  
-  # UI & Navigation
   cupertino_icons: ^1.0.2
+
   
   # Voice & Audio - Updated versions
   flutter_tts: ^4.2.3
@@ -48,7 +47,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   
-  assets:
-    - assets/icons/
-    - assets/images/
-    - assets/audio/
+  # assets:
+  #   - assets/icons/
+  #   - assets/images/
+  #   - assets/audio/
