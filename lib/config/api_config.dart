@@ -20,7 +20,6 @@ class ApiConfig {
   static Map<String, String> get commonParams => {
     'api-key': MARKET_API_KEY,
     'format': 'json',
-    'filters[Arrival_Date]' : '26/09/2025',
-    'limit': '30',
+    'limit': '50',
   };
 }

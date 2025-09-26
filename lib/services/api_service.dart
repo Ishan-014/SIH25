@@ -9,6 +9,7 @@ import '../models/market.dart';
 import '../models/pest_report.dart';
 import '../config/api_config.dart';
 import 'translation_service.dart';
+import 'location_service.dart'; // import your service
 
 class ApiService {
   static const int timeoutSeconds = 15;
@@ -111,6 +112,7 @@ class ApiService {
       Map<String, String> queryParams = {
         'api-key': ApiConfig.MARKET_API_KEY,
         'format': 'json',
+        'filters[Arrival_Date]' : '26/09/2025',
         'limit': '20',
       };
 
@@ -167,8 +169,15 @@ class ApiService {
   // Get weather information from OpenWeatherMap
   static Future<Weather> getWeather({String? location}) async {
     try {
+      final position = await LocationService.getCurrentLocation();
+      final lat = position.latitude.toString();
+      final lon = position.longitude.toString();
+      print(lat);
+      print(lon);
+
       Map<String, String> queryParams = {
-        'q': location ?? 'Punjab,IN',
+        'lat': lat,
+        'lon': lon,
         'appid': ApiConfig.WEATHER_API_KEY,
         'units': 'metric',
         'lang': _getWeatherLanguage(),
